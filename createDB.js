@@ -6,9 +6,9 @@ const client = new MongoClient(uri)
 async function run() {
 try {
 await client.connect();
-var database = client.db("milana_h");
+var database = client.db("milana");
 database.dropDatabase()
-database = client.db("milana_h");
+database = client.db("milana");
 const muzk = database.collection("muzk");
 const result = await muzk.insertMany(data);
 console.log(`${result} documents were inserted`);
