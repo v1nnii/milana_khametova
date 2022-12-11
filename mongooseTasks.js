@@ -1,13 +1,15 @@
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://127.0.0.1:27017/test')
 
-var Milana = mongoose.model('Milana', { name: String })
+var schema = mongoose.Schema({ name: String })
 
-var songs = new Milana({ name: 'Умка' })
-songs.save(function (err) {
-    if (err) {
-        console.log(err)
-    } else {
-        console.log('Ведь я такая Умка Умка Умка)))')
-    }
+schema.methods.umka = function(){
+console.log(this.get("name") + " я просто УМКА УМКА УМКА")
+}
+
+var milanas = mongoose.model('milanas', schema)
+
+var LP = new milanas({ name: 'UMKA' })
+LP.save(function (err) {
+    LP.umka()
 })
