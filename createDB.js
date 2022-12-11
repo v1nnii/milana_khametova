@@ -10,7 +10,7 @@ var database = client.db("milana_h");
 database.dropDatabase()
 database = client.db("milana_h");
 const muzk = database.collection("muzk");
-const result = await muzk.insertOne({name:"Хаметова"});
+const result = await muzk.insertMany(data);
 console.log(`${result} documents were inserted`);
 } finally {
 await client.close();
