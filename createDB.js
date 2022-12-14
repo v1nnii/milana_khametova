@@ -9,9 +9,9 @@ await client.connect();
 var database = client.db("milana");
 database.dropDatabase()
 database = client.db("milana");
-const muzk = database.collection("muzk");
-const result = await muzk.insertMany(data);
-console.log(`${result} documents were inserted`);
+const milanas = database.collection("milanas");
+const result = await milanas.insertMany(data);
+console.log(`${result.insertedCount} documents were inserted`);
 } finally {
 await client.close();
 }
